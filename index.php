@@ -1,19 +1,32 @@
 <?php
-$test = 10;
-$test = 10 + 10;
-$test = 10 - 10;
-$test = 10 * 10 * 10;
-$test = 10 / 10;
-$test = 5 % 2;
-$test = 2 ** 3;
-$test += 10;
-$test -= 10;
-$test *= 10;  
-$test /= 10;
-$test %= 10;
-$test **= 10;
-$test++;
-$test--;
+$test = 'hello';
+$test = 'hello' . ' world' . '!';
+$test = $test . '!!!!!';
+$test .= '!!!!!';
+$age = 18;
+$name = 'Miles';
+$test = $name . ' is ' . $age . ' years old.';
+$test = "$name is $age years old.";
+$test = "hello\n\nworld";
+$test = <<<END
+Hello world
+END;
+
+//$test = 10;
+//$test = 10 + 10;
+//$test = 10 - 10;
+//$test = 10 * 10 * 10;
+//$test = 10 / 10;
+//$test = 5 % 2;
+//$test = 2 ** 3;
+//$test += 10;
+//$test -= 10;
+//$test *= 10;  
+//$test /= 10;
+//$test %= 10;
+//$test **= 10;
+//$test++;
+//$test--;
 
 $a = 1;
 $b = ++$a;
