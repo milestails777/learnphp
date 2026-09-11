@@ -1,35 +1,60 @@
 <?php
+$num = 10;
+if ($num > 5) {
+    var_dump('Number is greater than 5');
+} else if ($num < 5) {
+    var_dump('Number is less than or equal to 5');
+} else {
+    var_dump('Number is equal to 10');
+} 
 
-function hello(): void {
-    var_dump('Hello');
+$day = (int) date('w');
+var_dump($day);
+
+if ($day === 0) {
+    var_dump('Today is Sunday');
+} else if ($day === 1) {
+    var_dump('Today is Monday');
+} else if ($day === 2) {
+    var_dump('Today is Tuesday');
+} else if ($day === 3) {
+    var_dump('Today is Wednesday');
+} else if ($day === 4) {
+    var_dump('Today is Thursday');
+} else if ($day === 5) {
+    var_dump('Today is Friday');
+} else if ($day === 6 || $day === 7) {
+    var_dump('Today is Saturday');
+} else {
+    var_dump('weirdoday');
 }
 
-hello();
-hello();
-hello();
-
-function helloName($name='Nameless', $age=0) {
-    var_dump("Hello, $name! You are $age years old.");
+switch ($day) {
+    case 0:
+        var_dump('Today is Sunday');
+        break;
+    case 1:
+        var_dump('Today is Monday');
+        break;
+    case 2:
+        var_dump('Today is Tuesday');
+        break;
+    case 3:
+        var_dump('Today is Wednesday');
+        break;
+    case 4:
+        var_dump('Today is Thursday');
+        break;
+    case 5:
+        var_dump('Today is Friday');
+        break;
+    case 6:
+        var_dump('Today is Saturday');
+        break;
+    default:
+        var_dump('weirdoday');
+        var_dump('asasd');
 }
-
-helloName('Samir', 18);
-helloName('Miles', 8);
-helloName();
-
-function square(int $a): int|null {
-    if($a < 0) {
-        return 0;
-    } else {
-        return $a * $a;
-    }
-    var_dump('This will never be reached');
-}
-
-$answer = square(-4);
-$answer = square(4);
-var_dump($answer);
-var_dump(square(5));
-
 
 
 
