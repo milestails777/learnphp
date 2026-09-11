@@ -1,48 +1,34 @@
 <?php
-$numbers = array(1, 2, 3);
-$numbers = [1, 2, 3];
-var_dump($numbers[1]);
-$numbers[2] = 5;
-var_dump($numbers);
-$test = [1, 'sasd', true, [1, 2, 3]];
-var_dump($test);
-var_dump($test[3][1]);
-$test = [
-    'name' => 'Miles Cibis',
-    'age' => 18,
-    1,
-    2,
-    3,
-    'color' => 'red',
-    'music' => 'jazz',
-    5,
-    100 => 6,
-    7,
-];
-var_dump($test);
-var_dump($test['name']);
 
-$combined = [1, 2, 3] + [4, 5, 6, 7];
-//[1, 2, 3] + 
-//[4, 5, 6, 7]; an example of array union operator in different method
-var_dump($combined);
+function hello(): void {
+    var_dump('Hello');
+}
 
-$text = implode('_', $test);
-var_dump($text);
+hello();
+hello();
+hello();
 
-array_push($test, 77, 'asdasd', 243);
-var_dump($test);
-$test[] = 'value';
-unset($test[100]);
-var_dump($test);
+function helloName($name='Nameless', $age=0) {
+    var_dump("Hello, $name! You are $age years old.");
+}
 
+helloName('Samir', 18);
+helloName('Miles', 8);
+helloName();
 
+function square(int $a): int|null {
+    if($a < 0) {
+        return 0;
+    } else {
+        return $a * $a;
+    }
+    var_dump('This will never be reached');
+}
 
-
-
-
-
-
+$answer = square(-4);
+$answer = square(4);
+var_dump($answer);
+var_dump(square(5));
 
 
 
