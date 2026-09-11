@@ -1,63 +1,23 @@
 <?php
-$num = 10;
-if ($num > 5) {
-    var_dump('Number is greater than 5');
-} else if ($num < 5) {
-    var_dump('Number is less than or equal to 5');
-} else {
-    var_dump('Number is equal to 10');
-} 
+ 
+ for($i = 0; $i < 10; $i++) {
+     var_dump($i);
+ }
 
-$day = (int) date('w');
-var_dump($day);
+ for($i = 9; $i>=0; $i--) {
+     var_dump($i);
+ }
 
-if ($day === 0) {
-    var_dump('Today is Sunday');
-} else if ($day === 1) {
-    var_dump('Today is Monday');
-} else if ($day === 2) {
-    var_dump('Today is Tuesday');
-} else if ($day === 3) {
-    var_dump('Today is Wednesday');
-} else if ($day === 4) {
-    var_dump('Today is Thursday');
-} else if ($day === 5) {
-    var_dump('Today is Friday');
-} else if ($day === 6 || $day === 7) {
-    var_dump('Today is Saturday');
-} else {
-    var_dump('weirdoday');
+ for($i = 1; $i < 1_000_000_000; $i*= 2) {
+    var_dump($i);
+ }
+
+ $time = time();
+ $count = 0;
+while($time + 1 > time()) {
+    $count++;
 }
-
-switch ($day) {
-    case 0:
-        var_dump('Today is Sunday');
-        break;
-    case 1:
-        var_dump('Today is Monday');
-        break;
-    case 2:
-        var_dump('Today is Tuesday');
-        break;
-    case 3:
-        var_dump('Today is Wednesday');
-        break;
-    case 4:
-        var_dump('Today is Thursday');
-        break;
-    case 5:
-        var_dump('Today is Friday');
-        break;
-    case 6:
-        var_dump('Today is Saturday');
-        break;
-    default:
-        var_dump('weirdoday');
-        var_dump('asasd');
-}
-
-
-
+var_dump($count);
 
 
 
