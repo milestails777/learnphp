@@ -1,16 +1,27 @@
 <?php
  
  class Box {
-    public $width;
-    private $height;
-    protected $length;
+    public int $width;
+    private int $height;
+    protected int $length;
 
     public function volume() {
         return $this->width * $this->height * $this->length;
     }
 
+    public function setHeight(int $height) {
+        if ($height < 0) {
+            $this->height = 0;
+        } else {
+            $this->height = $height;
+        }
+        
+    }
+    public function getHeight() {
+        return $this->height;
+    }
     public function test1() {
-        $this->height = 10;
+        $this->setHeight(10);
         var_dump($this->height);
     }
  }
@@ -22,7 +33,7 @@ class MetalBox extends Box {
     }
 
     public function test2() {
-        $this->height = 10;
+        $this->setHeight(10);
         var_dump($this->height);
     }
 }
