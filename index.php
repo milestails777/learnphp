@@ -2,27 +2,38 @@
  
  class Box {
     public $width;
-    public $height;
-    public $length;
+    private $height;
+    protected $length;
 
     public function volume() {
         return $this->width * $this->height * $this->length;
     }
+
+    public function test1() {
+        $this->height = 10;
+        var_dump($this->height);
+    }
  }
 
-$num1 = 1;
-$num2 = $num1;
-$num1 = 2;
-var_dump($num1, $num2);
+class MetalBox extends Box {
+    public $weightPerUnit;
+    public function mass() {
+        return $this->volume() * $this->weightPerUnit;
+    }
+
+    public function test2() {
+        $this->height = 10;
+        var_dump($this->height);
+    }
+}
 
 $box1 = new Box();
-$box1->width = 1;
-$box2 = clone $box1;
-$box2->width = $box1->width;
-$box1->width = 2;
+$box1->width = 10;
+var_dump($box1->width);
 
-var_dump($box1, $box2);
-
+$metal1 = new MetalBox();
+$metal1->test2();
+var_dump($metal1);
 
 
 
