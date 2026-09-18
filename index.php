@@ -2,59 +2,33 @@
  
  class Box {
 
+    public static $count;
+
     public function __construct(public int $width, private int $height, protected int $length) {
         
-        var_dump('Box was created');
     }
 
     public function volume() {
         return $this->width * $this->height * $this->length;
     }
 
-    public function __set($name, $value) 
-    {
-        var_dump( $name, $value );
+    public static function test(): void {
+        var_dump(self::$count);
+        var_dump(self::class);
+        var_dump(static::class);
     }
+}
 
-    public function __get($name) 
-    {
-        var_dump( $name );
-        return 'You are trying to access ';
-    }
+class MetalBox extends Box {
 
-    public function __call($name, $arguments) 
-    {
-        var_dump( $name, $arguments );
-    }
-
-    public function __toString() 
-    {
-        return 'I am a box yippee!';
-    }
-
-    public function __destruct() 
-    {
-        var_dump('Box was destroyed');
-    }
 
 }
 
-function test() {
-    $box1 = new Box(1, 2, 3);
-}
-test();
+Box::$count = 1;
+Box::$count = 2;
+MetalBox::test();
+var_dump(Box::$count, Box::$count);
 
-for($i=0; $i < 10; $i++) {
-    $box2 = new Box(1, 2, 3);
-}
-
-$box1 = new Box(1, 2, 3);
-$box1->hello = 'LOL';
-var_dump($box1->yolo);
-$box1->cool('hello', 'world');
-$box1(1, 'asdasa');
-var_dump($box1);
-echo $box1;
 
 
 
