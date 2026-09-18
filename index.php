@@ -33,8 +33,22 @@ class MetalBox extends Box {
     }
 
     public function test2() {
-        $this->setHeight(10);
+        $this->height = 10;
         var_dump($this->height);
+    }
+}
+
+trait HasColor {
+    public $color;
+    public function setColor($color) {
+        $this->color = $color;
+    }
+}
+
+trait HasSmell {
+    public $smell;
+    public function setSmell($smell) {
+        $this->smell = $smell;
     }
 }
 
