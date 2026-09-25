@@ -1,6 +1,14 @@
 <?php
 
-$title = 'World';
+//if(isset($title)) {
+//  echo $title;
+//} else {
+//  echo 'Default Title';
+//}
+
+//echo isset($title) ? $title : 'Default title';
+//echo $title ?? 'Default title';
+
 $posts = [
   [
     'title' => 'Some World title 1',
@@ -33,9 +41,6 @@ $posts = [
 <?php include __DIR__ . '/partials/header.php'; ?>
 
 <main class="container">
-  <?php include __DIR__ . '/partials/hero.php'; ?>
-  <?php include __DIR__ . '/partials/featured.php'; ?>
-
   <div class="row g-5">
     <div class="col-md-8">
       <?php include __DIR__ . '/partials/posts.php'; ?>
