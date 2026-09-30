@@ -1,64 +1,8 @@
 <?php
 
+use App\Controllers\PublicController;
 use App\Router;
 
-Router::addRoute('/', function() {
-    $title = 'World';
-    $posts = [
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2021',
-        'author' => 'Pets',
-        'body' => 'Some World body 1',
-    ],
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2023',
-        'author' => 'Sega',
-        'body' => 'Some World body 2',
-    ],
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2024',
-        'author' => 'Mario',
-        'body' => 'Some World body 3',
-    ],
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2025',
-        'author' => 'Verity',
-        'body' => 'Some World body 4',
-    ],
-    ];
-    include __DIR__ . '/views/index.php';
-});
+Router::addRoute('/', [PublicController::class, 'index']);
 
-Router::addRoute('/us', function() {
-    $posts = [
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2021',
-        'author' => 'Pets',
-        'body' => 'Some World body 1',
-    ],
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2023',
-        'author' => 'Sega',
-        'body' => 'Some World body 2',
-    ],
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2024',
-        'author' => 'Mario',
-        'body' => 'Some World body 3',
-    ],
-    [
-        'title' => 'Some World title 1',
-        'date' => 'January 1, 2025',
-        'author' => 'Verity',
-        'body' => 'Some World body 4',
-    ],
-    ];
-    include __DIR__ . '/views/us.php';
-});
+Router::addRoute('/us', [PublicController::class, 'us']);
