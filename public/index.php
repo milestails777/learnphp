@@ -10,66 +10,84 @@ function dump(...$vars) {
     echo '</pre>';
 }
 
-switch($_SERVER['REQUEST_URI']) {
-    case '/':
-        $title = 'World';
-        $posts = [
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2021',
-            'author' => 'Pets',
-            'body' => 'Some World body 1',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2023',
-            'author' => 'Sega',
-            'body' => 'Some World body 2',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2024',
-            'author' => 'Mario',
-            'body' => 'Some World body 3',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2025',
-            'author' => 'Verity',
-            'body' => 'Some World body 4',
-        ],
-        ];
-        include __DIR__ . '/../views/index.php';
-        break;
-    case '/us':
-        $posts = [
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2021',
-            'author' => 'Pets',
-            'body' => 'Some World body 1',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2023',
-            'author' => 'Sega',
-            'body' => 'Some World body 2',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2024',
-            'author' => 'Mario',
-            'body' => 'Some World body 3',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2025',
-            'author' => 'Verity',
-            'body' => 'Some World body 4',
-        ],
-        ];
-        include __DIR__ . '/../views/us.php';
-        break;
-    default:
-        echo 404;
+spl_autoload_register(function ($class) {
+    $class = substr($class, 4);
+    $class = str_replace ('\\', '/', $class);
+    require_once __DIR__ . "/../src/$class.php";
+});
+
+use App\Router;
+
+require __DIR__ . '/../routes.php';
+
+$router = new Router($_SERVER['REQUEST_URI']);
+$match = $router -> match();
+if($match) {
+    call_user_func($match['action']);
+} else {
+    echo 404;
 }
+
+// switch($_SERVER['REQUEST_URI']) {
+//     case '/':
+//         $title = 'World';
+//         $posts = [
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2021',
+//             'author' => 'Pets',
+//             'body' => 'Some World body 1',
+//         ],
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2023',
+//             'author' => 'Sega',
+//             'body' => 'Some World body 2',
+//         ],
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2024',
+//             'author' => 'Mario',
+//             'body' => 'Some World body 3',
+//         ],
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2025',
+//             'author' => 'Verity',
+//             'body' => 'Some World body 4',
+//         ],
+//         ];
+//         include __DIR__ . '/../views/index.php';
+//         break;
+//     case '/us':
+//         $posts = [
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2021',
+//             'author' => 'Pets',
+//             'body' => 'Some World body 1',
+//         ],
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2023',
+//             'author' => 'Sega',
+//             'body' => 'Some World body 2',
+//         ],
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2024',
+//             'author' => 'Mario',
+//             'body' => 'Some World body 3',
+//         ],
+//         [
+//             'title' => 'Some World title 1',
+//             'date' => 'January 1, 2025',
+//             'author' => 'Verity',
+//             'body' => 'Some World body 4',
+//         ],
+//         ];
+//         include __DIR__ . '/../views/us.php';
+//         break;
+//     default:
+//         echo 404;
+// }
