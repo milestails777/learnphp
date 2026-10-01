@@ -4,14 +4,14 @@ $posts = [
   [
     'title' => 'How AI Is Changing Everyday Software',
     'date' => 'September 18, 2026',
-    'author' => 'Alex Morgan',
+    'author' => 'Miles Cibis',
     'body' => 'Smaller AI models are bringing useful writing, search, and accessibility tools directly into the apps people already use.',
   ],
   [
     'title' => 'The Web Platform Keeps Getting Faster',
     'date' => 'September 24, 2026',
-    'author' => 'Jamie Lee',
-    'body' => 'Modern browsers continue to improve performance and built-in capabilities, helping developers create responsive experiences with less code.',
+    'author' => 'Aleksander Kartuzov',
+    'body' => 'Modern web browsers are constantly improving, and the web platform is evolving to support new features and capabilities.',
   ],
 ];
 ?>
