@@ -8,10 +8,10 @@ $posts = [
     'body' => 'Smaller AI models are bringing useful writing, search, and accessibility tools directly into the apps people already use.',
   ],
   [
-    'title' => 'The Web Platform Keeps Getting Faster',
+    'title' => 'PS5 is losing, Xbox revives themselves, and Nintendo is just nintendo',
     'date' => 'September 24, 2026',
     'author' => 'Aleksander Kartuzov',
-    'body' => 'Modern web browsers are constantly improving, and the web platform is evolving to support new features and capabilities.',
+    'body' => 'The gaming industry is falling down',
   ],
 ];
 ?>
