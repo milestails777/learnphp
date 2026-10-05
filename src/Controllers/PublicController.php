@@ -31,7 +31,7 @@ class PublicController {
             'body' => 'Some World body 4',
         ],
         ];
-        include __DIR__ . '/../../views/index.php';
+        view('index', compact('title', 'posts'));
     }
 
     public function us() {
@@ -61,7 +61,7 @@ class PublicController {
             'body' => 'Some World body 4',
         ],
         ];
-        include __DIR__ . '/../../views/us.php';
+        view('us', compact('posts'));
     }
 
     public function tech() {
@@ -79,6 +79,6 @@ class PublicController {
             'body' => 'Modern browsers continue to improve performance and built-in capabilities, helping developers create responsive experiences with less code.',
         ],
         ];
-        include __DIR__ . '/../../views/tech.php';
+        view('tech', compact('posts'));
     }
 }
