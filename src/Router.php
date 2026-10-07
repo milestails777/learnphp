@@ -19,11 +19,15 @@ class Router {
     }
 
     public function match() {
-        foreach(self::$routes as $route) {
-            if($route->getPath() === $this->path && $route->getMethod() === $this->method) {
+        foreach (self::$routes as $route) {
+            if (
+                $route->getPath() === $this->path
+                && $route->getMethod() === $this->method
+            ) {
                 return $route;
             }
-        } 
+        }
+
         return false;
     }
 }
