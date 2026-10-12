@@ -2,39 +2,34 @@
 
 namespace App\Controllers;
 
+use Exception;
+use PDO;
+use PDOException;
+
 class PublicController {
-    public function index() {
+    public function index() 
+    {
+        $servername = "localhost:33061";
+        $username = "root";
+        $password = "example";
+        $dbname = "project";
+        
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "Connected successfully";
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        
+
         $title = 'World';
-        $posts = [
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2021',
-            'author' => 'Pets',
-            'body' => 'Some World body 1',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2023',
-            'author' => 'Sega',
-            'body' => 'Some World body 2',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2024',
-            'author' => 'Mario',
-            'body' => 'Some World body 3',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2025',
-            'author' => 'Verity',
-            'body' => 'Some World body 4',
-        ],
-        ];
         view('index', compact('title', 'posts'));
     }
 
-    public function us() {
+    public function us() 
+    {
         $posts = [
         [
             'title' => 'Some World title 1',
@@ -64,7 +59,8 @@ class PublicController {
         view('us', compact('posts'));
     }
 
-    public function tech() {
+    public function tech() 
+    {
         $posts = [
         [
             'title' => 'How AI Is Changing Everyday Software',
