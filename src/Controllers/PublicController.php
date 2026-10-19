@@ -3,67 +3,22 @@
 namespace App\Controllers;
 
 use App\DB;
+use App\Models\Post;
+use App\Models\User;
 
 class PublicController {
     public function index() 
     {
-        $db = new DB();
-        $posts = $db->all('posts');
-        dump($posts); 
-        $users = $db->all('users');
-        dump($users);
+        $posts = Post::all();
         $title = 'World';
         view('index', compact('title', 'posts'));
     }
 
     public function us() 
     {
-        $posts = [
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2021',
-            'author' => 'Pets',
-            'body' => 'Some World body 1',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2023',
-            'author' => 'Sega',
-            'body' => 'Some World body 2',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2024',
-            'author' => 'Mario',
-            'body' => 'Some World body 3',
-        ],
-        [
-            'title' => 'Some World title 1',
-            'date' => 'January 1, 2025',
-            'author' => 'Verity',
-            'body' => 'Some World body 4',
-        ],
-        ];
-        view('us', compact('posts'));
-    }
-
-    public function tech() 
-    {
-        $posts = [
-        [
-            'title' => 'How AI Is Changing Everyday Software',
-            'date' => 'September 18, 2026',
-            'author' => 'Alex Morgan',
-            'body' => 'Smaller AI models are bringing useful writing, search, and accessibility tools directly into the apps people already use.',
-        ],
-        [
-            'title' => 'The Web Platform Keeps Getting Faster',
-            'date' => 'September 24, 2026',
-            'author' => 'Jamie Lee',
-            'body' => 'Modern browsers continue to improve performance and built-in capabilities, helping developers create responsive experiences with less code.',
-        ],
-        ];
-        view('tech', compact('posts'));
+        $users = User::all();
+        $title = 'World';
+        view('us', compact('title', 'users'));
     }
 
     public function forms() {

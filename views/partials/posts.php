@@ -2,16 +2,15 @@
 <?php foreach ($posts as $post): ?>
 
     <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-1"><?= $post['title'] ?></h2>
+        <h2 class="display-5 link-body-emphasis mb-1"><?= $post->title  ?></h2>
         <p class="blog-post-meta">
-            <?= $post['date'] ?> by <a href="a"><?= $post['author'] ?></a>
+            <?= $post->created_at ?>
         </p>
         <p>
-            <?= $post['body'] ?>
+            <?= $post->body ?>
         </p>
     </article>
 <?php endforeach; ?>
-
 <nav class="blog-pagination" aria-label="Pagination">
     <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
     <a
