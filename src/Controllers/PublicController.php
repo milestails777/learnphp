@@ -6,26 +6,34 @@ use App\DB;
 use App\Models\Post;
 use App\Models\User;
 
-class PublicController {
-    public function index() 
+class PublicController
+{
+    public function index()
     {
         $posts = Post::all();
         $title = 'World';
         view('index', compact('title', 'posts'));
     }
 
-    public function us() 
+    public function us()
     {
-        $users = User::all();
-        $title = 'World';
-        view('us', compact('title', 'users'));
+        $posts = Post::all();
+        view('us', compact('posts'));
     }
 
-    public function forms() {
+    public function tech()
+    {
+        $posts = Post::all();
+        view('tech', compact('posts'));
+    }
+
+    public function forms()
+    {
         view('forms');
     }
 
-    public function answer(){
+    public function answer()
+    {
         dump($_GET, $_POST);
     }
 }

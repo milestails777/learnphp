@@ -6,6 +6,11 @@ function dump(...$vars) {
     echo '</pre>';
 }
 
+function dd(...$vars) {
+    dump(...$vars);
+    die;
+}
+
 function view($viewname, $variables=[]){
     extract($variables);
     include __DIR__ . "/views/$viewname.php";
