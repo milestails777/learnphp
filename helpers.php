@@ -15,3 +15,7 @@ function view($viewname, $variables=[]){
     extract($variables);
     include __DIR__ . "/views/$viewname.php";
 }
+
+function redirect($to) {
+    header("Location: $to");
+}
