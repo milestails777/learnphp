@@ -7,9 +7,7 @@
         </div>
         <div class="mb-3">
             <label for="body" class="form-label">Content</label>
-            <textarea name="body" class="form-control" id="body" rows="3">
-                <?= $post->body ?>
-            </textarea>
+            <textarea name="body" class="form-control" id="body" rows="3"><?= $post->body ?></textarea>
         </div>
         <button class="btn btn-primary">Update</button>
     </form>

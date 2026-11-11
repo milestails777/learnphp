@@ -2,7 +2,7 @@
 <main class="container">
     <form action="/admin/posts" method="POST">
         <div class="mb-3">
-            <label for="title" class="form-label">Email address</label>
+            <label for="title" class="form-label">Title</label>
             <input name="title" type="text" class="form-control" id="title" placeholder="Some title">
         </div>
         <div class="mb-3">

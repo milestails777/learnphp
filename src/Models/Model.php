@@ -11,14 +11,19 @@ abstract class Model {
 
     public static function all() {
         $db = new DB();
-        $return = $db->all(static::$table, static::class); 
+        return $db->all(static::$table, static::class);
     }
 
     public static function find($id) {
         $db = new DB();
-        $return = $db->find(static::$table, static::class, $id); 
+        return $db->find(static::$table, static::class, $id);
     }
 
+    public static function where($field, $value) {
+        $db = new DB();
+        return $db->where(static::$table, static::class, $field, $value);
+    }
+    
     public function save() {
         $db = new DB();
         $fields = get_object_vars($this);

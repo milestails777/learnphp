@@ -11,20 +11,20 @@
         </thead>
         <tbody>
             <?php foreach (($posts ?? []) as $post): ?>
-            <tr>
-                <td><?= $post->id ?></td>
-                <td><?= $post->title ?></td>
-                <td><?= $post->created_at ?></td>
-                <td><?= $post->updated_at ?></td>
-                <td>
-                    <div class="btn-group">
-                        <a href="/admin/posts/view?id=<?= $post->id  ?>" class="btn btn-info">View</a>
-                        <a href="/admin/posts/edit?id=<?= $post->id  ?>" class="btn btn-warning">Edit</a>
-                        <a href="/admin/posts/delete?id=<?= $post->id  ?>" class="btn btn-danger">Delete</a>
-                    </div>
-                </td>
-            </tr>
-            <?php endforeach; ?>
+                <tr>
+                    <td><?= $post->id ?></td>
+                    <td><?= $post->title ?></td>
+                    <td><?= $post->created_at ?></td>
+                    <td><?= $post->updated_at ?></td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/admin/posts/view?id=<?= $post->id ?>" class="btn btn-info">View</a>
+                            <a href="/admin/posts/edit?id=<?= $post->id ?>" class="btn btn-warning">Edit</a>
+                            <a href="/admin/posts/delete?id=<?= $post->id ?>" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach ?>
         </tbody>
         <tfoot>
             <th>ID</th>

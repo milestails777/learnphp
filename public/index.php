@@ -1,26 +1,30 @@
 <?php
+
+
+
 if (preg_match('/\.(?:png|jpg|jpeg|gif|js|css)$/', $_SERVER["REQUEST_URI"])) {
     return false;    // serve the requested resource as-is.
 }
 
+
 spl_autoload_register(function ($class) {
     $class = substr($class, 4);
-    $class = str_replace ('\\', '/', $class);
+    $class = str_replace('\\', '/', $class);
     require_once __DIR__ . "/../src/$class.php";
 });
 
 use App\Router;
+session_start();
 
 require __DIR__ . '/../helpers.php';
 require __DIR__ . '/../routes.php';
 
-
 $router = new Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
-$match = $router -> match();
+$match = $router->match();
 if($match) {
     if(is_callable($match->getAction())) {
         call_user_func($match->getAction());
-    } else if (is_array($match->getAction())) {
+    } else if (is_array($match->getAction())){
         $class = $match->getAction()[0];
         $controller = new $class();
         $method = $match->getAction()[1];
@@ -30,66 +34,3 @@ if($match) {
     echo 404;
 }
 
-// switch($_SERVER['REQUEST_URI']) {
-//     case '/':
-//         $title = 'World';
-//         $posts = [
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2021',
-//             'author' => 'Pets',
-//             'body' => 'Some World body 1',
-//         ],
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2023',
-//             'author' => 'Sega',
-//             'body' => 'Some World body 2',
-//         ],
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2024',
-//             'author' => 'Mario',
-//             'body' => 'Some World body 3',
-//         ],
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2025',
-//             'author' => 'Verity',
-//             'body' => 'Some World body 4',
-//         ],
-//         ];
-//         include __DIR__ . '/../views/index.php';
-//         break;
-//     case '/us':
-//         $posts = [
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2021',
-//             'author' => 'Pets',
-//             'body' => 'Some World body 1',
-//         ],
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2023',
-//             'author' => 'Sega',
-//             'body' => 'Some World body 2',
-//         ],
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2024',
-//             'author' => 'Mario',
-//             'body' => 'Some World body 3',
-//         ],
-//         [
-//             'title' => 'Some World title 1',
-//             'date' => 'January 1, 2025',
-//             'author' => 'Verity',
-//             'body' => 'Some World body 4',
-//         ],
-//         ];
-//         include __DIR__ . '/../views/us.php';
-//         break;
-//     default:
-//         echo 404;
-// }

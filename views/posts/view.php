@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../partials/header.php'; ?>
 <main class="container">
-    <table class="table table-striped table-hover">
+   <table class="table table-striped table-hover">
         <tbody>
             <tr>
                 <th>ID</th>

@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 namespace App\Models;
 
 class User extends Model {
     protected static $table = 'users';
-
-    public $title;
+    
+    public $name;
     public $email;
     public $password;
     public $created_at;

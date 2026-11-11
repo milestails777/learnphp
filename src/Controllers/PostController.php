@@ -4,13 +4,12 @@ namespace App\Controllers;
 
 use App\Models\Post;
 
-
-class PostController 
+class PostController
 {
-    public function index() 
+    public function index()
     {
         $posts = Post::all();
-        view('posts\index', compact('posts'));
+        view('posts/index', compact('posts'));
     }
 
     public function create() {
@@ -39,12 +38,13 @@ class PostController
         $post = Post::find($_GET['id']);
         $post->title = $_POST['title'];
         $post->body = $_POST['body'];
-        $post->save(); 
+        $post->save();
         redirect('/admin/posts');
     }
 
     public function delete() {
         $post = Post::find($_GET['id']);
         $post->delete();
+        redirect('/admin/posts');
     }
 }

@@ -21,12 +21,6 @@ class PublicController
         view('us', compact('posts'));
     }
 
-    public function tech()
-    {
-        $posts = Post::all();
-        view('tech', compact('posts'));
-    }
-
     public function forms()
     {
         view('forms');

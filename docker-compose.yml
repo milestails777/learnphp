@@ -4,10 +4,10 @@ services:
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: example
-      MARIADB_DATABASE: project
+      MARIADB_DATABASE: learnphp
     volumes:
-      - ta24blearndb2dbdata:/var/lib/mysql
+      - ta24blearnphpdbdata:/var/lib/mysql
     ports:
       - 33061:3306
 volumes:
-  ta24blearndb2dbdata:
+  ta24blearnphpdbdata:
