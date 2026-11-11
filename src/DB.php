@@ -9,13 +9,14 @@ class DB {
     private $conn;
 
     public function __construct(){
-        $servername = "localhost:33061";
+        $servername = "127.0.0.1";
         $username = "root";
         $password = "example";
-        $dbname = "learnphp";
+        $port = 33061;
+        $dbname = "project";
 
         try {
-            $this->conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            $this->conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname;charset=utf8mb4", $username, $password);
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
